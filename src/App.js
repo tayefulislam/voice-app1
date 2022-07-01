@@ -1,6 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import { ReactMediaRecorder } from "react-media-recorder";
+import { Routes, Route, Link } from "react-router-dom";
+
+import System1 from './Pages/System1';
+import System2 from './Pages/System2';
+import System3 from './Pages/System3';
+import System4 from './Pages/System4';
 
 
 function App() {
@@ -10,17 +16,18 @@ function App() {
 
   return (
     <div className="App">
-      <ReactMediaRecorder
-        audio
-        render={({ status, startRecording, stopRecording, mediaBlobUrl }) => (
-          <div>
-            <p>{status}</p>
-            <button onClick={startRecording}>Start Recording</button>
-            <button onClick={stopRecording}>Stop Recording</button>
-            <audio src={mediaBlobUrl} controls autoPlay loop />
-          </div>
-        )}
-      />
+
+      <Routes>
+
+        <Route path='/' element={<System1></System1>}></Route>
+        <Route path='/2' element={<System2></System2>}></Route>
+        <Route path='/3' element={<System3></System3>}></Route>
+        <Route path='/4' element={<System4></System4>}></Route>
+
+      </Routes>
+
+
+
     </div>
   );
 }
